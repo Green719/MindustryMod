@@ -283,8 +283,7 @@ public class MMUnitTypes{
             }});
 
             weapons.add(new PointDefenseWeapon("mindustry-mod-serpens-pointDefense") {{
-                x = 0f;
-                y = 9f;
+                y = 0f;
                 shootY = 4f;
                 reload = 6f;
                 mirror = false;

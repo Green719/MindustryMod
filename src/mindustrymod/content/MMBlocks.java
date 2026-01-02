@@ -86,6 +86,7 @@ public class MMBlocks {
 
             //size = 5;
         //}};
+        
         serpDeconstructor = new PayloadDeconstructor("serpDeconstructor"){{
             requirements(Category.units, with(Items.silicon, 250, Items.titanium, 150, Items.lead, 300, Items.graphite, 90));
             regionSuffix = "-dark";
