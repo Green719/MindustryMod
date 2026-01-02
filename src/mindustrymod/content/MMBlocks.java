@@ -48,7 +48,7 @@ import static mindustry.type.ItemStack.*;
 import mindustrymod.content.MMUnitTypes;
 
 public class MMBlocks {
-    public static Block airAssaultAssembler, mechSupportAssembler, serpuleanAssemblerModule;
+    public static Block airAssaultAssembler, mechSupportAssembler, serpuleanAssemblerModule, serpDeconstructor, serpConstructor;
 
     public static void load() {
         airAssaultAssembler = new UnitAssembler("airAssaultAssembler") {{
@@ -86,5 +86,23 @@ public class MMBlocks {
 
             //size = 5;
         //}};
+        serpDeconstructor = new PayloadDeconstructor("serpDeconstructor"){{
+            requirements(Category.units, with(Items.silicon, 250, Items.titanium, 150, Items.lead, 300, Items.graphite, 90));
+            regionSuffix = "-dark";
+            itemCapacity = 250;
+            consumePower(3f);
+            size = 5;
+            deconstructSpeed = 6f;
+        }};
+
+        serpConstructor = new Constructor("serpConstructor"){{
+            requirements(Category.units, with(Items.silicon, 150, Items.titanium, 80, Items.lead, 200));
+            regionSuffix = "-dark";
+            hasPower = true;
+            buildSpeed = 0.6f;
+            consumePower(2.5f);
+            size = 3;
+            filter = Seq.with(Blocks.scrapWallLarge, Blocks.plastaniumWallLarge, Blocks.copperWallLarge, Blocks.titaniumWallLarge, Blocks.thoriumWallLarge, Blocks.surgeWallLarge, Blocks.liquidContainer, Blocks.container, Blocks.phaseWallLarge);
+        }};
     }
 }

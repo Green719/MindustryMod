@@ -3,6 +3,6 @@ name: "mindustry-mod"
 author: "Green"
 main: "mindustrymod.MindustryMod"
 description: "A Mindustry Java Mod"
-version: 1.0
+version: 1.1
 minGameVersion: 154
 java: true
