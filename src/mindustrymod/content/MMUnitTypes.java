@@ -304,7 +304,7 @@ public class MMUnitTypes{
 
         altAssemblyDrone = new UnitType("altAssemblyDrone"){{
             controller = u -> new AssemblerAI();
-            constructor = PayloadUnit::create;
+            constructor = BuildingTetherPayloadUnit::create;
 
             flying = true;
             drag = 0.06f;
