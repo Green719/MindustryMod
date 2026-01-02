@@ -247,7 +247,7 @@ public class MMUnitTypes{
             flying = false;
             health = 2700;
             rotateSpeed = 1.4f;
-            speed = 0.9f;
+            speed = 0.8f;
             hitSize = 18f;
             forceMultiTarget = true;
             armor = 14f;
