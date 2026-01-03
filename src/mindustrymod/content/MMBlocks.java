@@ -41,6 +41,7 @@ import mindustry.content.Items;
 import mindustry.content.UnitTypes;
 import mindustry.content.Blocks;
 import mindustry.content.Liquids;
+import mindustry.content.Fx;
 
 import static mindustry.Vars.*;
 import static mindustry.type.ItemStack.*;
