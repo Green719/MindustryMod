@@ -48,7 +48,15 @@ import static mindustry.type.ItemStack.*;
 import mindustrymod.content.MMUnitTypes;
 
 public class MMBlocks {
-    public static Block airAssaultAssembler, mechSupportAssembler, serpuleanAssemblerModule, serpDeconstructor, serpConstructor;
+    public static Block 
+                //payload things
+                    airAssaultAssembler, mechSupportAssembler, 
+                //tbd
+                    serpuleanAssemblerModule, 
+                //remade stuff
+                    serpDeconstructor, serpConstructor,
+                //turrets
+                    cluster;
 
     public static void load() {
         airAssaultAssembler = new UnitAssembler("airAssaultAssembler") {{
@@ -104,6 +112,229 @@ public class MMBlocks {
             consumePower(2.5f);
             size = 3;
             filter = Seq.with(Blocks.scrapWallLarge, Blocks.plastaniumWallLarge, Blocks.copperWallLarge, Blocks.titaniumWallLarge, Blocks.thoriumWallLarge, Blocks.surgeWallLarge, Blocks.liquidContainer, Blocks.container, Blocks.phaseWallLarge);
+        }};
+
+        cluster = new ItemTurret("cluster"){{
+            requirements(Category.turret, with(Items.surgeAlloy, 200, Items.graphite, 400, Items.copper, 800, Items.plastanium, 400, Items.phaseFabric, 100, Items.thorium, 200));
+            ammo(
+                    Items.plastanium, new ArtilleryBulletType(2.7f, 300, "shell"){{
+                        despawnEffect = hitEffect = new ExplosionEffect(){{
+                            waveColor = Pal.plastaniumFront;
+                            smokeColor = Color.gray;
+                            sparkColor = Pal.plastaniumBack;
+                            waveStroke = 4f;
+                            waveRad = 54f;
+                        }};
+                        knockback = 1.6f;
+                        lifetime = 136.3f;
+                        width = 18f;
+                        height = 24f;
+                        hitSize = 10f;
+                        buildingDamageMultiplier = 0.1f;
+
+                        ammoMultiplier = 1f;
+                        collidesTiles = true;
+                        collidesAir = true;
+                        collidesGround = true;
+                        collides = false;
+
+                        splashDamageRadius = 52f;
+                        splashDamage = 350f;
+                        scaledSplashDamage = true;
+
+                        fragBullet = new ArtilleryBulletType(2.5f, 38, "shell"){{
+                            width = 14f;
+                            height = 20f;
+                            hitSize = -1f;
+                            lifetime = 25f;
+                            backColor = Pal.plastaniumBack;
+                            frontColor = Pal.plastaniumFront;
+                            despawnEffect = hitEffect = new ExplosionEffect(){{
+                                waveColor = Pal.plastaniumFront;
+                                smokeColor = Color.gray;
+                                sparkColor = Pal.plastaniumBack;
+                                waveStroke = 4f;
+                                waveRad = 28f;
+                            }};
+
+                            splashDamageRadius = 32f;
+                            splashDamage = 35f;
+                            buildingDamageMultiplier = 0.1f;
+
+                            collidesTiles = true;
+                            collidesAir = true;
+                            collidesGround = true;
+                            collides = false;
+
+                            fragBullets = 6;
+                            fragBullet = new BasicBulletType(2.1f, 20, "shell"){{
+                                width = 12f;
+                                height = 16f;
+                                hitSize = 10f;
+                                lifetime = 25f;
+                                backColor = Pal.plastaniumBack;
+                                frontColor = Pal.plastaniumFront;
+                                despawnEffect = hitEffect = new ExplosionEffect(){{
+                                    waveColor = Pal.plastaniumFront;
+                                    smokeColor = Color.gray;
+                                    sparkColor = Pal.plastaniumBack;
+                                    waveStroke = 4f;
+                                    waveRad = 30f;
+                                }};
+
+                                splashDamageRadius = 28f;
+                                splashDamage = 55f;
+                                buildingDamageMultiplier = 0.1f;
+
+                                collidesTiles = true;
+                                collidesAir = true;
+                                collidesGround = true;
+                            }};
+                        }};
+                        fragBullets = 8;
+
+                        backColor = Pal.plastaniumBack;
+                        frontColor = Pal.plastaniumFront;
+
+                        fragAngle = 0f;
+                        fragSpread = 45f;
+                        fragRandomSpread = 10f;
+                    }},
+                    Items.surgeAlloy, new ArtilleryBulletType(2.7f, 350, "shell"){{
+                        despawnEffect = hitEffect = new ExplosionEffect(){{
+                            waveColor = Pal.surgeAmmoFront;
+                            smokeColor = Color.gray;
+                            sparkColor = Pal.surgeAmmoBack;
+                            waveStroke = 4f;
+                            waveRad = 54f;
+                        }};
+                        knockback = 1.6f;
+                        lifetime = 136.3f;
+                        width = 18f;
+                        height = 24f;
+                        hitSize = 10f;
+
+                        ammoMultiplier = 1f;
+                        collidesTiles = true;
+                        collidesAir = true;
+                        collidesGround = true;
+                        collides = false;
+
+                        splashDamageRadius = 52f;
+                        splashDamage = 350f;
+                        scaledSplashDamage = true;
+                        buildingDamageMultiplier = 0.1f;
+
+                        fragBullet = new ArtilleryBulletType(2.5f, 30, "shell"){{
+                            width = 14f;
+                            height = 20f;
+                            hitSize = -1f;
+                            lifetime = 25f;
+                            backColor = Pal.surgeAmmoBack;
+                            frontColor = Pal.surgeAmmoFront;
+                            despawnEffect = hitEffect = new ExplosionEffect(){{
+                                waveColor = Pal.surgeAmmoFront;
+                                smokeColor = Color.gray;
+                                sparkColor = Pal.surgeAmmoBack;
+                                waveStroke = 4f;
+                                waveRad = 32f;
+                            }};
+
+                            splashDamageRadius = 36f;
+                            splashDamage = 25f;
+
+                            lightning = 2;
+                            lightningDamage = 26;
+                            lightningLength = 12;
+
+                            collidesTiles = true;
+                            collidesAir = true;
+                            collidesGround = true;
+                            collides = false;
+
+                            fragBullets = 6;
+                            fragBullet = new BasicBulletType(2.1f, 20, "shell"){{
+                                width = 12f;
+                                height = 16f;
+                                hitSize = 10f;
+                                lifetime = 25f;
+                                backColor = Pal.surgeAmmoBack;
+                                frontColor = Pal.surgeAmmoFront;
+                                despawnEffect = hitEffect = new ExplosionEffect(){{
+                                    waveColor = Pal.surgeAmmoFront;
+                                    smokeColor = Color.gray;
+                                    sparkColor = Pal.surgeAmmoBack;
+                                    waveStroke = 4f;
+                                    waveRad = 30f;
+                                }};
+
+                                splashDamageRadius = 28f;
+                                splashDamage = 65f;
+                                buildingDamageMultiplier = 0.1f;
+
+                                collidesTiles = true;
+                                collidesAir = true;
+                                collidesGround = true;
+
+                                lightning = 2;
+                                lightningDamage = 16;
+                                lightningLength = 8;
+                            }};
+                        }};
+                        fragBullets = 6;
+
+                        lightning = 3;
+                        lightningDamage = 26;
+                        lightningLength = 16;
+
+                        backColor = Pal.surgeAmmoBack;
+                        frontColor = Pal.surgeAmmoFront;
+
+                        fragAngle = 0f;
+                        fragSpread = 45f;
+                        fragRandomSpread = 10f;
+                    }}
+            );
+
+            shoot.shots = 1;
+            inaccuracy = 0f;
+            reload = 330f;
+            
+            ammoPerShot = 10;
+            rotateSpeed = 1.4f;
+
+            ammoEjectBack = 5f;
+            ammoUseEffect = Fx.casing3;
+            ammoPerShot = 1;
+
+            scaledHealth = 150;
+            shootSound = Sounds.shootTank;
+
+            coolant = consumeCoolant(0.5f);
+            coolantMultiplier = 0.25f;
+            size = 4;
+
+            //to adjust
+
+            range = 400f;
+            minRange = 96f;
+
+            recoil = 1.5f;
+            shake = 6f;
+            newTargetInterval = 50f;
+            shootWarmupSpeed = 0.02f;
+            warmupMaintainTime = 250f;
+
+            drawer = new DrawTurret(){{
+                parts.add(new RegionPart("-mid"){{
+                    progress = PartProgress.recoil.curve(Interp.pow2In);
+                    under = false;
+                    moveY = -4.75f;
+                    mirror = false;
+                    heatColor = Pal.turretHeat;
+                }});
+            }};
+
         }};
     }
 }
