@@ -66,6 +66,9 @@ public class MMUnitTypes{
     public static UnitType nadir, glaive, serpens, altAssemblyDrone;
 
     public static void load() {
+
+//alt air
+
         nadir = new UnitType("nadir") {{
 
             constructor = UnitEntity::create;
@@ -157,6 +160,8 @@ public class MMUnitTypes{
             }});
         }};
 
+//alt ground
+
         glaive = new UnitType("glaive") {{
 
             constructor = MechUnit::create;
@@ -239,6 +244,8 @@ public class MMUnitTypes{
             }});
         }};
 
+//alt support ground
+
         serpens = new UnitType("serpens") {{
 
             constructor = MechUnit::create;
@@ -257,6 +264,7 @@ public class MMUnitTypes{
             targetAir = false;
 
             weapons.add(new RepairBeamWeapon("repair-beam-weapon-center-large") {{
+                x = 0f;
                 y = 6f;
                 top = true;
                 rotate = false;
@@ -283,6 +291,7 @@ public class MMUnitTypes{
             }});
 
             weapons.add(new PointDefenseWeapon("mindustry-mod-serpens-pointDefense") {{
+                x = 0f;
                 y = 0f;
                 shootY = 4f;
                 reload = 6f;
